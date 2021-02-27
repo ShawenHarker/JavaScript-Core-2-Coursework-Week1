@@ -11,12 +11,9 @@
   with corresponding birthday together. 
 
   Storing these pieces of information in different arrays and then pairing them up
-  makes the iteration unnecessarily complicated, code will be less intuitive, needs extra cognitive effort to
-  reason about and last but not least it can be error-prone (for example, you match up the wrong birthday to a name).
+  makes the iteration unnecessarily complicated, code will be less intuitive, needs extra cognitive effort to reason about and last but not least it can be error-prone (for example, you match up the wrong birthday to a name).
 
-  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know 
-  different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
-  use values inside Objects.
+  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to cd use values inside Objects.
 */
 
 // We've created an array of objects for you here:
@@ -54,11 +51,17 @@ let writers = [
 /*
 Exercise 1:
 
-  Loop through the Array, and for each object, use `console.log()` to print out the below sentence
-  and insert the corresponding values to the place holders that are indicated in curly braces:
+  Loop through the Array, and for each object, use `console.log()` to print out the below sentence and insert the corresponding values to the place holders that are indicated in curly braces:
 
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+
+function getWritersInfo (arr) {
+  for (let i = 0; i < arr.length; i++) {
+     console.log(`Hi, my name is ${arr[i].firstName} ${arr[i].lastName}. I am ${arr[i].age} years old, and work as a ${arr[i].occupation}.`);
+  }
+}
+getWritersInfo(writers);
 
 /*
 Exercise 2:
@@ -69,6 +72,9 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
+let noLonger = writers.filter((el) => el.alive === false && el.age > 40 && el.age < 49)
+.map((el) => console.log(`Writer ${el.firstName} ${el.lastName} died at ${el.age} years old.`));
+
 /*
 Exercise 3:
 
@@ -76,3 +82,6 @@ Exercise 3:
 
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
+
+let writersAlive = writers.filter((el) => el.alive === true && el.age > 40 && el.age < 49)
+.map((el) => console.log(`Hi, name is ${el.firstName} ${el.lastName}. I am ${el.age} years old.`));
